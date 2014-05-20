@@ -49,7 +49,16 @@ config = {
     // Configure your URL and mail settings here
     production: {
         url: 'http://'+process.env.OPENSHIFT_APP_DNS,
-        mail: {},
+	mail: {
+             transport: 'SMTP',
+             options: {
+                 service: 'Mailgun',
+                 auth: {
+                     user: 'postmaster@sandbox58335.mailgun.org', // mailgun username
+                     pass: '4ng0-p0jd8g4'  // mailgun password
+                 }
+             }
+        },
         database: {
             client: 'sqlite3',
             connection: {
